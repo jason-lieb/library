@@ -18,3 +18,31 @@ td, th {
   border: 1px solid gray;
   padding: .5rem;
 }
+
+#newBook {
+  display: block;
+  margin: 2rem auto;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 20vw;
+  margin: 2rem auto;
+}
+
+label {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+input {
+  width: 15vw;
+  flex-direction: flex-end;
+}
+
+#submit {
+  width: 5vw;
+  margin: 0 auto;
+}

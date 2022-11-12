@@ -1,0 +1,19 @@
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding: 3rem;
+}
+
+table {
+  margin: 0 auto;
+  border-spacing: 0;
+}
+
+td, th {
+  border: 1px solid black;
+  padding: .5rem;
+}

@@ -5,9 +5,10 @@ function Book(title, author, pages, read) {
   this.author = author;
   this.pages = pages;
   this.read = read;
-  this.info = function() {
-    return this.title + ', ' + this.author + ', ' + this.pages + ', ' + this.read;
-  }
+}
+
+Book.prototype.info = function() {
+  return this.title + ', ' + this.author + ', ' + this.pages + ', ' + this.read;
 }
 
 function addBookToLibrary() {

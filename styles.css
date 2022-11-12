@@ -11,9 +11,10 @@ body {
 table {
   margin: 0 auto;
   border-spacing: 0;
+  border: 1px solid gray;
 }
 
 td, th {
-  border: 1px solid black;
+  border: 1px solid gray;
   padding: .5rem;
 }

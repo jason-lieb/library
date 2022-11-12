@@ -35,5 +35,14 @@ function appendNewRow(book) {
 }
 
 function displayLibrary() {
+  resetLibrary();
   library.map(appendNewRow);
 }
+
+function resetLibrary() {
+  let table = document.querySelector('table');
+  table.innerHTML = '';
+  table.innerHTML = '<tr><th>Title</th><th>Author</th><th># of Pages</th><th>Read?</th></tr>';
+}
+
+resetLibrary();

@@ -2,6 +2,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  text-align: center;
 }
 
 body {
@@ -11,12 +12,26 @@ body {
 table {
   margin: 0 auto;
   border-spacing: 0;
-  border: 1px solid gray;
+  height:fit-content;
 }
 
 td, th {
-  border: 1px solid gray;
+  border-left: 1px solid gray;
+  border-top: 1px solid gray;
   padding: .5rem;
+  height: 2.5rem;
+}
+
+td:nth-of-type(4), th:nth-of-type(4) {
+  border-right: 1px solid gray;
+}
+
+table > tr:last-child > td {
+  border-bottom: 1px solid gray;
+}
+
+td:nth-of-type(5), th:nth-of-type(5) {
+  border: none !important;
 }
 
 #newBook {

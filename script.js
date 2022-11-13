@@ -27,7 +27,7 @@ Book.prototype.info = function() {
 }
 
 function resetLibrary() {
-  table.innerHTML = '<tr><th>Title</th><th>Author</th><th># of Pages</th><th>Read?</th></tr>';
+  table.innerHTML = '<thead><tr><th>Title</th><th>Author</th><th># of Pages</th><th>Read?</th><th></th></tr></thead>';
 }
 
 function addNewBookButton() {
@@ -56,7 +56,13 @@ function appendNewRow(book) {
 
 function bookToTableEntry(book) {
   let { title, author, pages, read } = book;
-  return `<td>${title}</td><td>${author}</td><td>${pages}</td><td>${read}</td>`
+  let readButton = '<button type="button">Read</button>';
+  let deleteButton = '<button type="button">Delete</button>';
+  return `<td>${title}</td><td>${author}</td><td>${pages}</td><td>${read}</td><td>${readButton}   ${deleteButton}</td>`
+}
+
+function createBookButtons() {
+  let read = document.createElement('button');
 }
 
 function createForm() {
@@ -84,3 +90,4 @@ function submitForm(e) {
 // - Don't reset library everytime a book is added
 // - Reduce number of querySelectors (global)
 // --- Create form globaly?
+// - Add functionality to read and delete buttons

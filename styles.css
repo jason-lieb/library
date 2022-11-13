@@ -35,10 +35,11 @@ label {
   display: flex;
   justify-content: space-between;
   width: 100%;
+  margin: 0.5rem;
 }
 
 input {
-  width: 15vw;
+  width: 14vw;
   flex-direction: flex-end;
 }
 

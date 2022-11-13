@@ -1,9 +1,18 @@
 let library = [];
 
+let body = document.querySelector('body');
+
 let book1 = new Book('a','b',5,true);
 let book2 = new Book('c','d',3,true);
 let book3 = new Book('g','e',42,false);
 let book4 = new Book('n','w',7,false);
+
+resetLibrary();
+addNewBookButton();
+addBookToLibrary(book1);
+addBookToLibrary(book2);
+addBookToLibrary(book3);
+addBookToLibrary(book4);
 
 function Book(title, author, pages, read) {
   this.title = title;
@@ -39,14 +48,28 @@ function addBookToLibrary(book) {
   displayLibrary();
 }
 
+function addNewBookButton() {
+  let newBook = document.createElement('button');
+  newBook.textContent = 'NEW BOOK';
+  newBook.id = 'newBook';
+  body.appendChild(newBook);
+  newBook.addEventListener('click', createForm);
+}
+
 function resetLibrary() {
   let table = document.querySelector('table');
-  table.innerHTML = '';
   table.innerHTML = '<tr><th>Title</th><th>Author</th><th># of Pages</th><th>Read?</th></tr>';
 }
 
-let newBook = document.querySelector('#newBook');
-newBook.addEventListener('click', createForm);
+function submitForm(e) {
+  e.preventDefault();
+  let inputs = [];
+  e.target.querySelectorAll('input').forEach((input) => inputs.push(input.value));
+  addBookToLibrary(new Book(...inputs));
+  let form = document.querySelector('form');
+  body.removeChild(form);
+  addNewBookButton();
+}
 
 function createForm() {
   let body = document.querySelector('body');
@@ -54,13 +77,8 @@ function createForm() {
   let form = document.createElement('form');
   let formHTML = '<label name="title">Title <input type="text"/></label><label name="author">Author <input type="text"/></label>'
       + '<label name="pages"># of Pages <input type="text"/></label><label name="read">Read? <input type="text"/></label>'
-      + '<button id="submit" type="submit">Submit</button>';
+      + '<button id="submit">Submit</button>';
   form.innerHTML = formHTML;
   body.appendChild(form);
+  form.addEventListener('submit', submitForm);
 }
-
-resetLibrary();
-addBookToLibrary(book1);
-addBookToLibrary(book2);
-addBookToLibrary(book3);
-addBookToLibrary(book4);

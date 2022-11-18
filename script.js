@@ -5,6 +5,18 @@ body.appendChild(table);
 resetLibrary();
 addNewBookButton();
 
+class Book {
+  constructor(title, author, pages, read) {
+    this.title = title;
+    this.author = author;
+    this.pages = pages;
+    this.read = read;
+  }
+  info() {
+    return this.title + ', ' + this.author + ', ' + this.pages + ', ' + this.read;
+  }
+}
+
 let book1 = new Book('a','b',5,true);
 let book2 = new Book('c','d',3,true);
 let book3 = new Book('g','e',42,false);
@@ -13,18 +25,6 @@ addBookToLibrary(book1);
 addBookToLibrary(book2);
 addBookToLibrary(book3);
 addBookToLibrary(book4);
-
-function Book(title, author, pages, read) {
-  this.title = title;
-  this.author = author;
-  this.pages = pages;
-  this.read = read;
-  return this;
-}
-
-Book.prototype.info = function() {
-  return this.title + ', ' + this.author + ', ' + this.pages + ', ' + this.read;
-}
 
 function resetLibrary() {
   table.innerHTML = '<thead><tr><th>Title</th><th>Author</th><th># of Pages</th><th>Read?</th><th></th></tr></thead>';
